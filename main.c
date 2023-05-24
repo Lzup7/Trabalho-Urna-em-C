@@ -12,30 +12,30 @@ int VtGv;//voto Governador
 int VtPf;//voto prefeito
 int VtVr;//voto vereador
 
-int NVtPr_A;//numero_voto presidente A
-int NVtPr_B;//numero_voto presidente B
+int NVtPr_A = 0;//numero_voto presidente A
+int NVtPr_B = 0;//numero_voto presidente B
 
-int NVtSn_A;//numero_voto Senador A
-int NVtSn_B;//numero_voto Senador B
-int NVtSn_C;//numero_voto Senador C
-int NVtSn_D;//numero_voto Senador D
+int NVtSn_A = 0;//numero_voto Senador A
+int NVtSn_B = 0;//numero_voto Senador B
+int NVtSn_C = 0;//numero_voto Senador C
+int NVtSn_D = 0;//numero_voto Senador D
 
-int NVtDp_A;//numero_voto Deputado A
-int NVtDp_B;//numero_voto Deputado B
-int NVtDp_C;//numero_voto Deputado C
-int NVtDp_D;//numero_voto Deputado D
+int NVtDp_A = 0;//numero_voto Deputado A
+int NVtDp_B = 0;//numero_voto Deputado B
+int NVtDp_C = 0;//numero_voto Deputado C
+int NVtDp_D = 0;//numero_voto Deputado D
 
-int NVtGv_A;//numero_voto Governador A
-int NVtGv_B;//numero_voto Governador B
-int NVtGv_C;//numero_voto Governador C
+int NVtGv_A = 0;//numero_voto Governador A
+int NVtGv_B = 0;//numero_voto Governador B
+int NVtGv_C = 0;//numero_voto Governador C
 
-int NVtPf_A;//numero_voto prefeito A
-int NVtPf_B;//numero_voto prefeito B
+int NVtPf_A = 0;//numero_voto prefeito A
+int NVtPf_B = 0;//numero_voto prefeito B
 
-int NVtVr_A;//numero_voto vereadorA
-int NVtVr_B;//numero_voto vereadorB
-int NVtVr_C;//numero_voto vereadorC
-int NVtVr_D;//numero_voto vereadorD
+int NVtVr_A = 0;//numero_voto vereadorA
+int NVtVr_B = 0;//numero_voto vereadorB
+int NVtVr_C = 0;//numero_voto vereadorC
+int NVtVr_D = 0;//numero_voto vereadorD
 
 
 }RegistroVt;
@@ -65,7 +65,10 @@ void Votar(RegistroVt votos[], int *numVotos) {
   if(votos[*numVotos].VtPr == 1){
     votos[*numVotos].NVtPr_A += 1
     
-  } else if()
+  } else if(votos[*numVotos].VtPr == 2){
+    votos[*numVotos].NVtPr_B += 1
+    
+  }
 
   (*numVotos)++;
   printf("Produto adicionado ao votos.\n");
