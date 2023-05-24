@@ -62,14 +62,61 @@ void Votar(RegistroVt votos[], int *numVotos) {
   printf("\n____________________________\nVote no seu candidato:\n1-VereadorA\n2-VereadorB\n3-VereadorC\n4-VereadorD\n");
   scanf("%d", &votos[*numVotos].VtVr);
 
+  //Esses If serviram para computar a quantidade de votos por candidato
+  
   if(votos[*numVotos].VtPr == 1){
     votos[*numVotos].NVtPr_A += 1
-    
   } else if(votos[*numVotos].VtPr == 2){
     votos[*numVotos].NVtPr_B += 1
-    
+  } else{
+    printf("Erro Selecione um valor valido!\n");;
   }
 
+  if(votos[*numVotos].VtSn == 1){
+    votos[*numVotos].NVtSn_A += 1
+  } else if(votos[*numVotos].VtSn == 2){
+    votos[*numVotos].NVtSn_B += 1
+  } else if(votos[*numVotos].VtSn == 3){
+    votos[*numVotos].NVtSn_C += 1
+  } else if(votos[*numVotos].VtSn == 4){
+    votos[*numVotos].NVtSn_D += 1
+  }
+  else{
+    printf("Erro Selecione um valor valido!\n");;
+  }
+
+  if(votos[*numVotos].VtDp == 1){
+    votos[*numVotos].NVtDp_A += 1
+  } else if(votos[*numVotos].VtDp == 2){
+    votos[*numVotos].NVtDp_B += 1
+  } else if(votos[*numVotos].VtDp == 3){
+    votos[*numVotos].NVtDp_C += 1
+  } else if(votos[*numVotos].VtDp == 4){
+    votos[*numVotos].NVtDp_D += 1
+  }
+  else{
+    printf("Erro Selecione um valor valido!\n");;
+  }
+
+   if(votos[*numVotos].VtGv == 1){
+    votos[*numVotos].NVtGv_A += 1
+  } else if(votos[*numVotos].VtGv == 2){
+    votos[*numVotos].NVtGv_B += 1
+  } else if(votos[*numVotos].VtGv == 3){
+    votos[*numVotos].NVtGv_C += 1
+  }
+  else{
+    printf("Erro Selecione um valor valido!\n");;
+  }
+
+  if(votos[*numVotos].VtPf == 1){
+    votos[*numVotos].NVtPf_A += 1
+  } else if(votos[*numVotos].VtPf == 2){
+    votos[*numVotos].NVtPf_B += 1
+  } else{
+    printf("Erro Selecione um valor valido!\n");;
+  }
+  
   (*numVotos)++;
-  printf("Produto adicionado ao votos.\n");
+  printf("Voto Realizado com sucesso.\n");
 }
