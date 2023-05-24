@@ -69,7 +69,7 @@ void Votar(RegistroVt votos[], int *numVotos) {
   } else if(votos[*numVotos].VtPr == 2){
     votos[*numVotos].NVtPr_B += 1
   } else{
-    printf("Erro Selecione um valor valido!\n");;
+    printf("Erro Valor Invalido!\n");;
   }
 
   if(votos[*numVotos].VtSn == 1){
@@ -82,7 +82,7 @@ void Votar(RegistroVt votos[], int *numVotos) {
     votos[*numVotos].NVtSn_D += 1
   }
   else{
-    printf("Erro Selecione um valor valido!\n");;
+    printf("Erro Valor Invalido!\n");;
   }
 
   if(votos[*numVotos].VtDp == 1){
@@ -95,7 +95,7 @@ void Votar(RegistroVt votos[], int *numVotos) {
     votos[*numVotos].NVtDp_D += 1
   }
   else{
-    printf("Erro Selecione um valor valido!\n");;
+    printf("Erro Valor Invalido!\n");;
   }
 
    if(votos[*numVotos].VtGv == 1){
@@ -106,7 +106,7 @@ void Votar(RegistroVt votos[], int *numVotos) {
     votos[*numVotos].NVtGv_C += 1
   }
   else{
-    printf("Erro Selecione um valor valido!\n");;
+    printf("Erro Valor Invalido!\n");;
   }
 
   if(votos[*numVotos].VtPf == 1){
@@ -114,8 +114,22 @@ void Votar(RegistroVt votos[], int *numVotos) {
   } else if(votos[*numVotos].VtPf == 2){
     votos[*numVotos].NVtPf_B += 1
   } else{
-    printf("Erro Selecione um valor valido!\n");;
+    printf("Erro Valor Invalido!\n");;
   }
+
+  if(votos[*numVotos].VtVr == 1){
+    votos[*numVotos].NVtVr_A += 1
+  } else if(votos[*numVotos].VtVr == 2){
+    votos[*numVotos].NVtVr_B += 1
+  } else if(votos[*numVotos].VtVr == 3){
+    votos[*numVotos].NVtVr_C += 1
+  } else if(votos[*numVotos].VtVr == 4){
+    votos[*numVotos].NVtVr_D += 1
+  }
+  else{
+    printf("Erro Valor Invalido!\n");;
+  }
+
   
   (*numVotos)++;
   printf("Voto Realizado com sucesso.\n");
