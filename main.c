@@ -18,11 +18,22 @@ int VtVr;//voto vereador
 
 //Função Registrar o voto:
 
-void Votar(RegistroVt votos[], int numVotos) {
- 
+void Votar(RegistroVt votos[], int numVotos){
+  int cpf,aux_=0;
+  
   printf("\nNovo \n");
   printf("Digite seu Cpf: ");
-  scanf("%d", &votos[numVotos].cpf);
+  scanf("%d", &cpf);
+
+  if(numVotos!=0){
+   for(int i = 0; i<numVotos;i++){
+    if(votos[i].cpf == cpf){
+     aux_=1;  printf("\n-----------------\n-Cpf ja ultilizado-\n-----------------\n");
+    }
+   }
+  }
+ if(aux_== 0 ){
+  votos[numVotos].cpf = cpf;   
   printf("Digite seu Nome: ");
   scanf(" %[^\n]s", votos[numVotos].nome);
   int timer;
@@ -89,7 +100,7 @@ if (votos[numVotos].VtVr > 4 || votos[numVotos].VtVr < 1){
   
   printf("Voto Realizado com sucesso.\n");
 }
-
+}
 void Conferir(RegistroVt votos[], int cpf, int n ){
   int aux = 0;
   for(int i = 0; i<n;i++){
@@ -269,13 +280,11 @@ scanf("%d",&op_menu);
     break;
     
   case 0:
+    printf("\n-Programa encerrado-\n");
     break;
     
 default:
-    do{
-      printf("\n---------Urna---------\n\n1-Votar\n2-Conferir Voto\n3-Resultados\n0-Encerrar\n");
-scanf("%d",&op_menu);
-    }while(op_menu);
+    printf("\n-Opção invalida-\nDigite novamente\n");
     break;
   }
   
