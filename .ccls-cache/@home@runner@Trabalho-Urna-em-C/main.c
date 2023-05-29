@@ -18,70 +18,92 @@ int VtVr;//voto vereador
 
 //Função Registrar o voto:
 
-void Votar(RegistroVt votos[], int numVotos) {
- 
+void Votar(RegistroVt votos[], int numVotos){
+
+  //A int aux serve como a chave para que o codigo continue. enquanto a chave continuar como 0, codigo seguira (pois sera prerequisito de um 'if' ultilizado posteriormente )
+  int cpf,aux_=0;
+  
   printf("\nNovo \n");
   printf("Digite seu Cpf: ");
-  scanf("%d", &votos[numVotos].cpf);
+  scanf("%d", &cpf);
+
+//Este if foi criado com o objetivo de criar uma variavel capaz de filtrar Cpfs ja ultilizados para que eles não se sobrescrevam:           Se o numero de votos for diferente de zero, significando que algum cpf ja foi criado, se inicializara uma fiscalização ultilizando 'for' E 'numVotos'(que serve como variavel marcadora de vetores) para verificar se o cpf citado não é repetido. assim mudando a int aux pra 1 caso esteja repetido (fazendo com que o codigo não siga ) e exibindo uma msg de erro.
+  
+  if(numVotos!=0){
+   for(int i = 0; i<numVotos;i++){
+    if(votos[i].cpf == cpf){
+     aux_=1;  printf("\n-----------------\n-Cpf ja ultilizado-\n-----------------\n");
+    }
+   }
+  }
+
+  //Caso a aux siga com o valor de 0, codigo continuara por esse if 
+ if(aux_== 0 ){
+
+  //Os valores seram registrados em um vetor alocado no respectvio dado do banco de dados criado
+  votos[numVotos].cpf = cpf;   
   printf("Digite seu Nome: ");
   scanf(" %[^\n]s", votos[numVotos].nome);
+
+   // Mais uma vez a int timer serve como um item chave que sera ultilizado em repetições futuras
   int timer;
 
+   //While foi ultilizado para criar um sistema, ultilizando if, para qualquer numero fora do desejado fosse negado alterando o valor de timer pra 1. fazendo com que o codigo apenas avance caso o timer seja igual a 0(pois na linguagem c. 0 e equivalente a 'false' e 1 a 'true'. ou seja enquanto o valor for equivalente a true o while n parara sua repetição. a não ser que avance com o valor false que anulara a repetição )
  do{ timer = 0;
-  printf("\n____________________________\nVote no seu candidato:\n1-PresidenteA\n2-PresidenteB\n");
+  printf("\n____________________________\nVote no seu candidato:Presidente\n1-Seu Madruga\n2-Naruto Uzumaki\n");
   scanf("%d", &votos[numVotos].VtPr);
    if (votos[numVotos].VtPr > 2 || votos[numVotos].VtPr < 1){
-     printf("\nERRO: voto1 invalido!\n");
+     printf("\nERRO: voto invalido!\n");
      timer = 1;}
    }while(timer);
 
   
   
 do{ timer = 0;
-  printf("\n____________________________\nVote no seu candidato:\n1-SenadorA\n2-SenadorB\n3-SenadorC\n4-SenadorD\n");
+  printf("\n____________________________\nVote no seu candidato:Senador\n1-Rambo\n2-Luffy\n3-Logan\n4-Bruce Wanne\n");
   scanf("%d", &votos[numVotos].VtSn);
   if (votos[numVotos].VtSn > 4 || votos[numVotos].VtSn < 1){
-     printf("\nERRO: voto1 invalido!\n");
+     printf("\nERRO: voto invalido!\n");
      timer = 1;}
  
  }while(timer);
    
   
  do{  timer = 0;
-   printf("\n____________________________\nVote no seu candidato:\n1-DeputadoA\n2-DeputadoB\n3-DeputadoC\n4-DeputadoD\n");
+   printf("\n____________________________\nVote no seu candidato:Deputado\n1-Jean Gray\n2-Sonic\n3-Mario\n4-Wanda\n");
   scanf("%d", &votos[numVotos].VtDp);
   if (votos[numVotos].VtDp > 4 || votos[numVotos].VtDp < 1){
-     printf("\nERRO: voto1 invalido!\n");
+     printf("\nERRO: voto invalido!\n");
      timer = 1;}
  
  }while(timer);
   
   
  do{ timer = 0;
-   printf("\n____________________________\nVote no seu candidato:\n1-GovernadorA\n2-GovernadorB\n3-GovernadorC\n");
+   printf("\n____________________________\nVote no seu candidato:Governador\n1-Kratos\n2-Ryu\n3-Rugal\n");
   scanf("%d", &votos[numVotos].VtGv);
     if (votos[numVotos].VtGv > 3 || votos[numVotos].VtGv < 1){
-     printf("\nERRO: voto1 invalido!\n");
+     printf("\nERRO: voto invalido!\n");
      timer = 1;}
  
  }while(timer);
    
   
  do{ timer = 0;
-   printf("\n____________________________\nVote no seu candidato:\n1-PrefeitoA\n2-PrefeitoB\n");
+   printf("\n____________________________\nVote no seu candidato:Prefeito\n1-Leon\n2-James\n");
   scanf("%d", &votos[numVotos].VtPf);
     if (votos[numVotos].VtPf > 2 || votos[numVotos].VtPf < 1){
-     printf("\nERRO: voto1 invalido!\n");
+     printf("\nERRO: voto invalido!\n");
      timer = 1;}
  
  }while(timer);
    
   
   do{ timer = 0;
-    printf("\n____________________________\nVote no seu candidato:\n1-VereadorA\n2-VereadorB\n3-VereadorC\n4-VereadorD\n");
+    printf("\n____________________________\nVote no seu candidato:Vereador\n1-Peter Parker\n2-Nicolas Cage-\n3-Charles chaplin-\n4-Vereador D\n");
   scanf("%d", &votos[numVotos].VtVr);
 if (votos[numVotos].VtVr > 4 || votos[numVotos].VtVr < 1){
-     printf("\nERRO: voto1 invalido!\n");
+     printf("\nERRO: voto invalido!\n");
      timer = 1;
    }
    }while(timer);
@@ -89,8 +111,15 @@ if (votos[numVotos].VtVr > 4 || votos[numVotos].VtVr < 1){
   
   printf("Voto Realizado com sucesso.\n");
 }
+}
+
+
+//Função conferir
 
 void Conferir(RegistroVt votos[], int cpf, int n ){
+
+//Essa função e bem mais simples, pois se trata do mesmo algoritimo criado para barrar cpfs repetidos. neste caso a int n recebe o valor de numVotos no menu, ao qual se trata da quantidade de vetores criados, junto a int i que serve como contador que ira aumentar ate a quantidade maxima de vetores criados, assim servindo como um ponteiro que ultilizando o if ira analizar em todos os vetores se alguma variavel cpf bate com o cpf digitado, assim imprimindo as informaçoes solicitadas.
+  
   int aux = 0;
   for(int i = 0; i<n;i++){
     if(votos[i].cpf == cpf){
@@ -104,6 +133,8 @@ void Conferir(RegistroVt votos[], int cpf, int n ){
       }
     
 }
+
+//função resultados
 
 void resultado(RegistroVt votos[], int n){
 
@@ -164,9 +195,9 @@ int pr1 = 0, pr2 = 0, sn1 = 0, sn2 = 0, sn3 = 0, sn4 = 0, dp1 = 0, dp2=0, dp3= 0
 printf("Presidente:\n");
   
   if(pr1>pr2){
-    printf("1-Presidente A");
+    printf("-Seu Madruga-");
   }else if(pr1<pr2){
-    printf("2-Presidente B");
+    printf("-Naruto Uzumaki-");
   }else{
    printf("-Ocorreu empate-");
   }
@@ -174,13 +205,13 @@ printf("Presidente:\n");
 printf("\nSenador:\n");
   
   if(sn1>sn2 && sn1>sn3 && sn1>sn4 ){
-    printf("1-Senador A");
+    printf("-Rambo-");
   }else if(sn2>sn1 && sn2>sn3 && sn2>sn4){
-    printf("2-Senador B");
+    printf("-Luffy-");
   }else if(sn3>sn1 && sn3>sn2 && sn3>sn4){
-    printf("3-Senador C");
+    printf("-Logan-");
   }else if(sn4>sn1 && sn4>sn3 && sn4>sn2){
-    printf("4-Senador D");
+    printf("-Bruce Wanne-");
   }else{
    printf("-Ocorreu empate-");
   }
@@ -188,13 +219,13 @@ printf("\nSenador:\n");
   printf("\nDeputado:\n");
 
  if(dp1>dp2 && dp1>dp3 && dp1>dp4 ){
-    printf("1-Deputado A");
+    printf("-Jean Gray-");
   }else if(dp2>dp1 && dp2>dp3 && dp2>dp4){
-    printf("2-Deputado B");
+    printf("-Sonic-");
   }else if(dp3>dp1 && dp3>dp2 && dp3>dp4){
-    printf("3-Deputado C");
+    printf("-Mario-");
   }else if(dp4>dp1 && dp4>dp3 && dp4>dp2){
-    printf("4-Deputado D");
+    printf("-Wanda-");
   }else{
    printf("-Ocorreu empate-");
   }   
@@ -202,11 +233,11 @@ printf("\nSenador:\n");
 printf("\nGovernador:\n"); 
 
    if(gv1>gv2 && gv1>gv3 ){
-    printf("1-Governador A");
+    printf("-Kratos-");
   }else if(gv2>gv1 && gv2>gv3){
-    printf("2-Governador B");
+    printf("-Ryu-");
   }else if(gv3>gv1 && gv3>gv2){
-    printf("3-Governador C");
+    printf("-Rugal-");
   }else{
    printf("-Ocorreu empate-");
   }   
@@ -215,9 +246,9 @@ printf("\nGovernador:\n");
 printf("\nPrefeito:\n");
   
   if(pf1>pf2){
-    printf("1-Prefeito A");
+    printf("-Leon-");
   }else if(pf1<pf2){
-    printf("2-Prefeito B");
+    printf("-James-");
   }else{
    printf("-Ocorreu empate-");
   }
@@ -225,13 +256,13 @@ printf("\nPrefeito:\n");
 printf("\nVereador:\n");
   
  if(vr1>vr2 && vr1>vr3 && vr1>vr4 ){
-    printf("1-Vereador A");
+    printf("-Peter Parker");
   }else if(vr2>vr1 && vr2>vr3 && vr2>vr4){
-    printf("2-Vereador B");
+    printf("-Nicolas Cage-");
   }else if(vr3>vr1 && vr3>vr2 && vr3>vr4){
-    printf("3-Vereador C");
+    printf("-Charles chaplin-");
   }else if(vr4>vr1 && vr4>vr3 && vr4>vr2){
-    printf("4-Vereador D");
+    printf("-Sonya-");
   }else{
     printf("-Ocorreu empate-");
   }   
@@ -265,17 +296,15 @@ scanf("%d",&op_menu);
 
   case 3:
     resultado(votos, numVotos);
-    printf("\n%d Eleitores\n", numVotos);
+    printf("\n\n%d Eleitores\n", numVotos);
     break;
     
   case 0:
+    printf("\n-Programa encerrado-\n");
     break;
     
 default:
-    do{
-      printf("\n---------Urna---------\n\n1-Votar\n2-Conferir Voto\n3-Resultados\n0-Encerrar\n");
-scanf("%d",&op_menu);
-    }while(op_menu);
+    printf("\n-Opção invalida-\nDigite novamente\n");
     break;
   }
   
