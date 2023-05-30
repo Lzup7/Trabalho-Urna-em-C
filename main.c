@@ -100,7 +100,7 @@ do{ timer = 0;
    
   
   do{ timer = 0;
-    printf("\n____________________________\nVote no seu candidato:Vereador\n1-Peter Parker\n2-Nicolas Cage-\n3-Charles chaplin-\n4-Vereador D\n");
+    printf("\n____________________________\nVote no seu candidato:Vereador\n1-Peter Parker\n2-Nicolas Cage-\n3-Charles chaplin-\n4-Sonya-\n");
   scanf("%d", &votos[numVotos].VtVr);
 if (votos[numVotos].VtVr > 4 || votos[numVotos].VtVr < 1){
      printf("\nERRO: voto invalido!\n");
@@ -138,9 +138,10 @@ void Conferir(RegistroVt votos[], int cpf, int n ){
 
 void resultado(RegistroVt votos[], int n){
 
+//Criei varias variaveis int, uma para cada candidato
 int pr1 = 0, pr2 = 0, sn1 = 0, sn2 = 0, sn3 = 0, sn4 = 0, dp1 = 0, dp2=0, dp3= 0, dp4= 0, gv1 = 0, gv2= 0, gv3= 0, pf1 = 0, pf2 = 0, vr1 = 0, vr2 = 0, vr3 = 0, vr4 = 0;
 
-  
+  //for estrotura de repetição que sera ultilizada com os ifs para computar os votos de cada candidato em cada vetor
    for(int i = 0; i<n;i++){
      
          if(votos[i].VtPr == 1){ 
@@ -190,6 +191,8 @@ int pr1 = 0, pr2 = 0, sn1 = 0, sn2 = 0, sn3 = 0, sn4 = 0, dp1 = 0, dp2=0, dp3= 0
          }else{ vr4++;} 
 
    }
+
+  //Essa parte foi criada para decidir qual candidato ganhou em sua respctiva concorrencia e imprimir o resultado.(com a string ocorreu empate pra caso ocorra algum empate entre os candidatos)
   printf("\n----------Eleitos----------\n");
 
 printf("Presidente:\n");
