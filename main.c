@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Estrotura pra armazenar dados do voto:
+//Grupo: Lucas Emanuel/ Arlan Rodrigo/ Maurício Gonzaga/ Jadson Barreto / Pedro Góis/ Leo Nunes
+
+//Estrutura pra armazenar dados do voto:
 typedef struct{
 int cpf;
 char nome[50];
@@ -9,7 +11,7 @@ int VtPr;//voto presidente
 int VtSn;//voto Senador
 int VtDp;//voto Deputado
 int VtGv;//voto Governador
-int VtPf;//voto prefeito
+int VtPf;//voto prefeitof
 int VtVr;//voto vereador
 
 
@@ -40,7 +42,7 @@ void Votar(RegistroVt votos[], int numVotos){
   //Caso a aux siga com o valor de 0, codigo continuara por esse if 
  if(aux_== 0 ){
 
-  //Os valores seram registrados em um vetor alocado no respectvio dado do banco de dados criado
+  //Os valores seram registrados em um vetor alocado no respectivo dado do banco de dados criado
   votos[numVotos].cpf = cpf;   
   printf("Digite seu Nome: ");
   scanf(" %[^\n]s", votos[numVotos].nome);
@@ -291,6 +293,7 @@ scanf("%d",&op_menu);
     Votar(votos, numVotos);
     numVotos++;
     break;
+    
   case 2:
     printf("Digite seu Cpf:");
     scanf("%d",&cpf);
@@ -305,7 +308,8 @@ scanf("%d",&op_menu);
   case 0:
     printf("\n-Programa encerrado-\n");
     break;
-    
+
+ 
 default:
     printf("\n-Opção invalida-\nDigite novamente\n");
     break;
